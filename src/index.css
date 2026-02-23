@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-charcoal: #141414;
+  --color-brand-gold: #C5A059;
+  --color-brand-steel: #4A4A4A;
+  --color-brand-concrete: #F5F5F5;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-medium;
+  }
+
+  /* Ensure touch targets are accessible */
+  button, a {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center md:inline-flex md:min-h-0 md:min-w-0;
+  }
+}
+
+/* Fluid Typography Helpers */
+.text-fluid-h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+}
+
+.glass-nav {
+  @apply bg-white/80 backdrop-blur-md border-b border-black/5;
+}
+
+.text-reveal {
+  @apply overflow-hidden;
+}
+
+.project-card-hover {
+  @apply transition-all duration-700 ease-out;
+}
+
+.project-card-hover:hover img {
+  @apply scale-110;
+}
+
+.project-card-hover:hover .overlay {
+  @apply opacity-100;
+}
+
+.industrial-grid {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.03;
+}
